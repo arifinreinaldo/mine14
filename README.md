@@ -43,6 +43,7 @@ A complete, modern restaurant Point of Sale (POS) system with QR code ordering, 
 - **Real-time**: Socket.IO for live updates
 - **QR Codes**: Automatic generation per table
 - **Deployment**: Docker + Docker Compose
+- **Testing**: Jest, Vitest, Playwright (comprehensive test coverage)
 
 ## Quick Start with Docker (Recommended)
 
@@ -217,6 +218,62 @@ This will start:
 - `menu_items` - Individual menu items
 - `orders` - Customer orders
 - `order_items` - Items in each order
+
+## Testing
+
+The system includes comprehensive test coverage across all layers:
+
+### Run All Tests
+```bash
+./run-all-tests.sh
+```
+
+### Backend Tests (Jest + Supertest)
+```bash
+cd backend
+npm test                    # Run all tests with coverage
+npm run test:watch          # Watch mode
+npm run test:integration    # Integration tests only
+```
+
+Coverage includes:
+- Database schema validation
+- API endpoint testing (Tables, Menu, Orders)
+- Order flow integration
+- Error handling
+
+### Frontend Tests (Vitest + React Testing Library)
+```bash
+cd frontend
+npm test                    # Run all tests with coverage
+npm run test:watch          # Watch mode
+npm run test:ui             # UI mode
+```
+
+Coverage includes:
+- Component rendering
+- User interactions
+- API integration
+- Navigation flow
+
+### E2E Tests (Playwright)
+```bash
+cd e2e
+npx playwright install      # First time only
+npm test                    # Run E2E tests
+npm run test:ui             # UI mode
+npm run test:headed         # See browser
+```
+
+Coverage includes:
+- Complete order workflow
+- Kitchen display functionality
+- Server dashboard operations
+- Admin panel management
+- Cross-browser testing (Chrome, Firefox, Safari, Mobile)
+
+### View Test Documentation
+See [TESTING.md](TESTING.md) for detailed testing guide.
 
 ## Customization
 
